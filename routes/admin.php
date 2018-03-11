@@ -7,7 +7,8 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
 //        return 'hi';
 //    });
     Route::get('login', 'AdminLogin@login');
-    Route::get('pages/mainpage', ['middleware' => 'auth', 'uses' => 'AdminLogin@login']);
+//        ->middleware('admin');
+//    Route::get('pages/mainpage', ['middleware' => 'auth', 'uses' => 'AdminLogin@login']);
 
     Route::post('login', 'AdminLogin@dologin');
     Route::get('forgot/password', 'AdminLogin@remember_password');
@@ -40,8 +41,8 @@ Route::get('/admin', function (){
     return var_dump($_COOKIE);
 });
 
-Route::get('login', 'Admin\AdminLogin@login');
-Route::post('login', 'Admin\AdminLogin@dologin');
-Route::post('pages/mainpage', [ 'as' => 'login', 'uses' => 'Admin\AdminLogin@dologin']);
+//Route::get('login', 'Admin\AdminLogin@login')->middleware('admin');
+//Route::post('login', 'Admin\AdminLogin@dologin');
+//Route::post('pages/mainpage', [ 'as' => 'login', 'uses' => 'Admin\AdminLogin@dologin']);
 
 //Route::get('pages/mainpage', ['middleware' => 'auth', 'uses' => 'Admin\AdminLogin@login']);

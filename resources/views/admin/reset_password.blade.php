@@ -74,7 +74,8 @@
                 </div>
                 <!-- /.col -->
                 <div class="col-xs-4">
-                    <button type="submit" class="btn btn-primary btn-block btn-flat" onclick="myFunction()">Reset</button>
+                    {{--<button type="submit" class="btn btn-primary btn-block btn-flat" onclick="myFunction()">Reset</button>--}}
+                    <button type="submit" class="btn btn-primary btn-block btn-flat">Reset</button>
                 </div>
                 <!-- /.col -->
             </div>

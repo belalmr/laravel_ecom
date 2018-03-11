@@ -19,7 +19,7 @@ class AdminLogin extends Controller
     public function login()
     {
 //        if (Session::)
-        
+
         return view('admin.login');
     }
 
@@ -39,7 +39,7 @@ class AdminLogin extends Controller
             return view('admin.index');
         } else {
             session()->flash('error', trans('admin_lang.incorrect_information_login'));
-            return redirect('admin.remember_password');
+            return redirect('admin/login');
         }
 //        return view('welcome2');
     }
@@ -52,7 +52,7 @@ class AdminLogin extends Controller
 
     public function remember_password()
     {
-        return view('admin.remember_password');
+        return view('admin/remember_password');
     }
 
     public function remember_password_post()
@@ -93,7 +93,7 @@ class AdminLogin extends Controller
     public function reset_password_post($token)
     {
         $this->validate(\request(), [
-            'password' => 'required|confirmed',
+            'password' => 'required|string|min:6|confirmed',
             'password_confirmation' => 'required'
         ]);
 
