@@ -201,7 +201,7 @@
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <img src="{{ url('/') }}/adminlte/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
-              <span class="hidden-xs">Hi
+              <span class="hidden-xs">{{ \App\Http\admin_auth()->user()->name }}
 {{--                {{ admin_auth()->user()->name }}--}}
               </span>
             </a>
@@ -211,8 +211,8 @@
                 <img src="{{ url('/') }}/adminlte/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
 
                 <p>
-                  Alexander Pierce - Web Developer
-                  <small>Member since Nov. 2012</small>
+                  {{ \App\Http\admin_auth()->user()->name }}
+                  <small>Member since Nov. {{ \App\Http\admin_auth()->user()->created_at }}</small>
                 </p>
               </li>
               <!-- Menu Body -->

@@ -71,7 +71,7 @@
     </div> -->
     <!-- /.social-auth-links -->
 
-    <a href="{{ url('/forgot/password/') }}">I forgot my password</a><br>
+    <a href="{{ url('admin/forgot/password/') }}">I forgot my password</a><br>
     <a href="{{ url('/welcome/') }}" class="text-center">Register a new membership</a>
 
   </div>

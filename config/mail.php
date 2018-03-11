@@ -28,8 +28,9 @@ return [
     | the Mailgun mail service which will provide reliable deliveries.
     |
     */
-
-    'host' => env('MAIL_HOST', 'smtp.mailgun.org'),
+//    MAIL_HOST=smtp.mailtrap.io
+//    MAIL_PORT=2525
+    'host' => env('MAIL_HOST', 'smtp.mailtrap.io'),
 
     /*
     |--------------------------------------------------------------------------
@@ -42,7 +43,7 @@ return [
     |
     */
 
-    'port' => env('MAIL_PORT', 587),
+    'port' => env('MAIL_PORT', 2525),
 
     /*
     |--------------------------------------------------------------------------

@@ -36,21 +36,34 @@
     <!-- /.login-logo -->
     <div class="login-box-body">
         <p class="login-box-msg">Reset Password</p>
+
         @if(session()->has('success'))
             <div class="alert alert-success">
                 <h1> {{ session('success') }}</h1>
             </div>
         @endif
+
+        @if($errors->all())
+            <div class="alert alert-danger">
+                @foreach($errors->all() as $error)
+                    <li> {{ $error }}</li>
+                @endforeach
+            </div>
+        @endif
         <form method="post">
             {{ csrf_field() }}
             <div class="form-group has-feedback">
-                <input type="email" name="email" class="form-control" placeholder="Email">
+                <input type="email" name="email" value="{{ $data->email }}" class="form-control" placeholder="Email">
                 <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
             </div>
-            {{--<div class="form-group has-feedback">--}}
-            {{--<input type="password" name="password" class="form-control" placeholder="Password">--}}
-            {{--<span class="glyphicon glyphicon-lock form-control-feedback"></span>--}}
-            {{--</div>--}}
+            <div class="form-group has-feedback">
+                <input type="password" name="password" class="form-control" placeholder="Enter Password">
+                <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+            </div>
+            <div class="form-group has-feedback">
+                <input type="password" name="password_confirmation" class="form-control" placeholder="Password Confirm">
+                <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+            </div>
             <div class="row">
                 <div class="col-xs-8">
                     <div class="checkbox icheck">
@@ -61,7 +74,7 @@
                 </div>
                 <!-- /.col -->
                 <div class="col-xs-4">
-                    <button type="submit" class="btn btn-primary btn-block btn-flat">Reset</button>
+                    <button type="submit" class="btn btn-primary btn-block btn-flat" onclick="myFunction()">Reset</button>
                 </div>
                 <!-- /.col -->
             </div>
@@ -90,6 +103,13 @@
 <script src="{{ url('/') }}/adminlte/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <!-- iCheck -->
 <script src="{{ url('/') }}/adminlte/plugins/iCheck/icheck.min.js"></script>
+
+<script>
+    function myFunction() {
+        alert("You Already Reset Password");
+    }
+</script>
+
 <script>
     $(function () {
         $('input').iCheck({
