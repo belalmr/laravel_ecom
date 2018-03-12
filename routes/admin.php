@@ -18,7 +18,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
 
 //    Route::any('welcome', 'AdminLogin@register');
     Route::group(['middleware' => 'admin:admin'], function () {
-
+        Route::resource('admin', 'AdminController');
         Route::get('/', function () {
             return view('admin.layout.home');
         });
@@ -37,9 +37,9 @@ Route::group(['prefix' => 'admin'], function () {
         return view('admin.layout.home');
     });
 });
-Route::get('/admin', function (){
-    return var_dump($_COOKIE);
-});
+//Route::get('/admin', function (){
+//    return var_dump($_COOKIE);
+//});
 
 //Route::get('login', 'Admin\AdminLogin@login')->middleware('admin');
 //Route::post('login', 'Admin\AdminLogin@dologin');

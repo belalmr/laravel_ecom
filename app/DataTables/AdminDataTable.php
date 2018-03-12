@@ -14,7 +14,7 @@ class AdminDataTable extends DataTable
      * @param mixed $query Results from query() method.
      * @return \Yajra\DataTables\DataTableAbstract
      */
-    public function dataTable($query)
+    public function dataTable1($query)
     {
         return datatables($query)
             ->addColumn('action', 'admindatatable.action');
@@ -55,7 +55,9 @@ class AdminDataTable extends DataTable
     {
         return [
             'id',
-            'add your columns',
+            'name',
+            'email',
+            'action',
             'created_at',
             'updated_at'
         ];
