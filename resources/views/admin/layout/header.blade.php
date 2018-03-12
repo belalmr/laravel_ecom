@@ -35,7 +35,11 @@
   <!--<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>-->
   <script src="{{ url('/') }}/adminlte/bower_components/jquery/dist/jquery.min.js"></script>
 
-  <![endif]-->
+  {{--<!-- DataTables -->--}}
+  {{--<script src="{{ url('/') }}/adminlte/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>--}}
+{{--  {{ var_dump(url('/adminlte/bower_components/datatables.net/js/jquery.dataTables.min.js'))}}--}}
+  {{--<script src="{{ url('/') }}/adminlte/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>--}}
+  {{--<link rel="stylesheet" href="{{ url('/') }}/adminlte/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">--}}
 
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
