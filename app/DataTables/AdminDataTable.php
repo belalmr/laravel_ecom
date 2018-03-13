@@ -4,6 +4,10 @@ namespace App\DataTables;
 
 //use App\Http\Middleware\Admin;
 use App\Admin;
+
+//use PDF;
+//use Barryvdh\Snappy;
+use phpDocumentor\Reflection\Types\Self_;
 use Yajra\DataTables\Services\DataTable;
 
 class AdminDataTable extends DataTable
@@ -14,10 +18,25 @@ class AdminDataTable extends DataTable
      * @param mixed $query Results from query() method.
      * @return \Yajra\DataTables\DataTableAbstract
      */
-    public function dataTable1($query)
+    public function dataTable($query)
     {
         return datatables($query)
-            ->addColumn('action', 'admindatatable.action');
+            ->addColumn('edit', 'admin.admins.btn.edit')
+            ->addColumn('delete', 'admin.admins.btn.delete')
+            ->rawColumns([
+                'edit',
+                'delete'
+            ]);
+    }
+
+    public static function lang()
+    {
+        $langJason = [
+            'sProcessing' => trans('admin_lang.sProcessing')
+        ];
+
+//        return (object) $langJason;
+        return json_encode($langJason);
     }
 
     /**
@@ -42,11 +61,20 @@ class AdminDataTable extends DataTable
         return $this->builder()
             ->columns($this->getColumns())
             ->minifiedAjax()
-            ->addAction(['width' => '80px'])
+//            ->addAction(['width' => '80px'])
             // ->parameters($this->getBuilderParameters());
             ->parameters([
-//                'dom' => 'Blfrtip',
-                'lengthMenu' => [[10, 25, 50, 100, -1], [10, 25, 50, 'All Recorde']]
+                'dom' => 'Blfrtip',
+                'lengthMenu' => [[10, 25, 50, 100, -1], [10, 25, 50, 100, 'All Records']],
+                'buttons' => [
+                    ['text' => 'Create Admin'],
+                    ['extend' => 'print', 'className' => 'btn btn-primary', 'text' => 'print '],
+                    ['extend' => 'csv', 'className' => 'btn btn-info', 'text' => '<i class="fa fa-print">print</i>'],
+                    ['extend' => 'pdf', 'className' => 'btn btn-info', 'text' => '<i class="fa fa-print">print</i>'],
+                    ['extend' => 'refresh', 'className' => 'btn btn-info', 'text' => '<i class="fa fa-print">print</i>'],
+                ],
+                'language' => self::lang()
+
             ]);
     }
 
@@ -58,12 +86,35 @@ class AdminDataTable extends DataTable
     protected function getColumns()
     {
         return [
-            'id',
+            [
+                'name' => 'id',
+                'data' => 'id',
+                'title' => 'ID'
+            ],
             'name',
             'email',
-            'action',
+//            'action',
             'created_at',
-            'updated_at'
+            'updated_at',
+            [
+                'name' => 'edit',
+                'data' => 'edit',
+                'title' => 'Edit',
+                'exportable' => false,
+                'printable' => false,
+                'searchable' => false,
+                'orderable' => false,
+            ],
+            [
+                'name' => 'delete',
+                'data' => 'delete',
+                'title' => 'Delete',
+                'exportable' => false,
+                'printable' => false,
+                'searchable' => false,
+                'orderable' => false,
+            ],
+
         ];
     }
 

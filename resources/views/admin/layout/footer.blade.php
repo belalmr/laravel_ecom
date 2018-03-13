@@ -203,9 +203,9 @@
 <!-- ./wrapper -->
 
  <!-- DataTables -->
- <script src="{{ url('/') }}/adminlte/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
- <script src="{{ url('/') }}/adminlte//bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
- <link rel="stylesheet" href="{{ url('/') }}/adminlte/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
+ {{--<script src="{{ url('/') }}/adminlte/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>--}}
+ {{--<script src="{{ url('/') }}/adminlte//bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>--}}
+ {{--<link rel="stylesheet" href="{{ url('/') }}/adminlte/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">--}}
 
 <!-- jQuery 3 -->
 <script src="{{ url('/') }}/adminlte/bower_components/jquery/dist/jquery.min.js"></script>
@@ -215,6 +215,49 @@
 <script>
   $.widget.bridge('uibutton', $.ui.button);
 </script>
+
+ {{----}}
+ <!--Import jQuery before export.js-->
+ <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+{{--<script>--}}
+{{--$('#tbl').DataTable({--}}
+    {{--dom: 'Bfrtip',--}}
+    {{--buttons: [--}}
+        {{--'copy', 'csv', 'excel', 'pdf                                                                                        ', 'print'--}}
+    {{--]--}}
+{{--});</script>--}}
+
+ <!--Data Table-->
+ <script type="text/javascript"  src=" https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js">
+     // $('#tbl').DataTable({
+     //     dom: 'Bfrtip',
+     //     buttons: [
+     //         'copy', 'csv', 'excel', 'pdf                                                                                        ', 'print'
+     //     ]
+     // });
+ </script>
+ <script type="text/javascript"  src=" https://cdn.datatables.net/buttons/1.2.4/js/dataTables.buttons.min.js">
+     {{--$('#tbl').DataTable({--}}
+         {{--dom: 'Bfrtip',--}}
+         {{--buttons: [--}}
+             {{--'copy', 'csv', 'excel', 'pdf                                                                                        ', 'print'--}}
+         {{--]--}}
+     {{--});--}}
+ </script>
+
+ <!--Export table buttons-->
+ <script type="text/javascript"  src="https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"></script>
+ <script type="text/javascript" src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.24/build/pdfmake.min.js" ></script>
+ <script type="text/javascript"  src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.24/build/vfs_fonts.js"></script>
+ <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.2.4/js/buttons.html5.min.js"></script>
+ <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.2.1/js/buttons.print.min.js"></script>
+
+ <!--Export table button CSS-->
+
+ <link rel="stylesheet" href="https://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css">
+ <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.2.4/css/buttons.dataTables.min.css">
+
+ {{----}}
 <!-- Bootstrap 3.3.7 -->
 <script src="{{ url('/') }}/adminlte/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <!-- Morris.js charts -->
@@ -244,6 +287,16 @@
 <script src="{{ url('/') }}/adminlte/dist/js/pages/dashboard.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{ url('/') }}/adminlte/dist/js/demo.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+
+ {{--<script src="{{ url('/') }}/adminlte/bower_components/morrisjs/morris.min.js"></script>--}}
+ <script src="{{ url('/') }}/adminlte/bower_components/morris.js/morris.min.js"></script>
+
+ <script src="{{ url('/') }}/vendor/datatables/buttons.server-side.js"></script>
+
+
+
 
  @stack('js')
  @stack('css')

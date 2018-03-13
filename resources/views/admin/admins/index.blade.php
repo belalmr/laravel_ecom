@@ -8,8 +8,9 @@
             {{ $dataTable->table(['class' => 'dataTable table table-striped table-hover table-bordered']) }}
         </div>
     </div>
-@push('js')
-    {{ $dataTable->scripts() }}
-@endpush
+
+    @push('js')
+        {{ $dataTable->scripts() }}
+    @endpush
 
 @endsection
